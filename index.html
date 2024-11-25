@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support ORF International Flights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .letter {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Support International Flights at Norfolk International Airport</h1>
+    <p>
+        Below is a formal letter addressed to Senator Mark Warner urging support for international flights at Norfolk International Airport (ORF). 
+        Fill out the form below to personalize the letter.
+    </p>
+
+    <div class="letter" id="letter">
+[Your Name]  
+[Your Address]  
+[City, State, ZIP Code]  
+[Email Address]  
+[Phone Number]  
+[Date]  
+
+The Honorable Mark Warner  
+Senator for Virginia  
+703 Hart Senate Office Building  
+Washington, D.C. 20510  
+
+Dear Senator Warner,  
+
+I am writing to you as a resident of [City/Region] and a constituent who cares deeply about the growth and accessibility of our region. 
+I urge you to support the expansion of Norfolk International Airport (ORF) to include international flights.  
+
+Recently, a report highlighted that ORF has significant demand for international destinations, with the potential to fill multiple flights a 
+week to Europe (source: WAVY News). Expanding ORF’s capabilities to host international flights would bring substantial economic, cultural, 
+and tourism benefits to our region and strengthen its global connections.  
+
+Currently, many residents and businesses in Hampton Roads must travel long distances to access international flights. Offering direct 
+international connections from ORF would save time, reduce costs, and enhance the region’s appeal as a hub for commerce, military operations, and tourism.  
+
+Federal support is vital in making this vision a reality. Your influence could help Norfolk International Airport secure funding and 
+resources needed for infrastructure improvements, attracting airlines, and meeting federal and international aviation standards.  
+
+As our senator, your advocacy for this initiative would reflect your commitment to the economic growth and well-being of Virginians. 
+I kindly ask that you champion this effort and help make international flights at ORF a priority.  
+
+Thank you for considering this request. I am hopeful for your support in this endeavor, and I am happy to provide any further information 
+or assistance needed to advance this cause.  
+
+Sincerely,  
+[Your Full Name]  
+[Your Address]  
+[Email Address]  
+[Phone Number]  
+    </div>
+
+    <h2>Fill Out Your Details</h2>
+    <form id="emailForm">
+        <label for="name">Your Full Name:</label><br>
+        <input type="text" id="name" name="name" oninput="updateLetter()" required><br><br>
+
+        <label for="address">Your Address:</label><br>
+        <input type="text" id="address" name="address" oninput="updateLetter()" required><br><br>
+
+        <label for="city">City, State, ZIP Code:</label><br>
+        <input type="text" id="city" name="city" oninput="updateLetter()" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" oninput="updateLetter()" required><br><br>
+
+        <label for="phone">Your Phone Number:</label><br>
+        <input type="text" id="phone" name="phone" oninput="updateLetter()" required><br><br>
+
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" oninput="updateLetter()" required><br><br>
+
+        <label for="region">City/Region:</label><br>
+        <input type="text" id="region" name="region" oninput="updateLetter()" required><br><br>
+
+        <button type="button" onclick="sendEmail()">Send Email</button>
+    </form>
+
+    <script>
+        function updateLetter() {
+            const name = document.getElementById('name').value || '[Your Name]';
+            const address = document.getElementById('address').value || '[Your Address]';
+            const city = document.getElementById('city').value || '[City, State, ZIP Code]';
+            const email = document.getElementById('email').value || '[Email Address]';
+            const phone = document.getElementById('phone').value || '[Phone Number]';
+            const date = document.getElementById('date').value || '[Date]';
+            const region = document.getElementById('region').value || '[City/Region]';
+
+            document.getElementById('letter').innerText = `
+${name}  
+${address}  
+${city}  
+${email}  
+${phone}  
+${date}  
+
+The Honorable Mark Warner  
+Senator for Virginia  
+703 Hart Senate Office Building  
+Washington, D.C. 20510  
+
+Dear Senator Warner,  
+
+I am writing to you as a resident of ${region} and a constituent who cares deeply about the growth and accessibility of our region. 
+I urge you to support the expansion of Norfolk International Airport (ORF) to include international flights.  
+
+Recently, a report highlighted that ORF has significant demand for international destinations, with the potential to fill multiple flights a 
+week to Europe (source: WAVY News). Expanding ORF’s capabilities to host international flights would bring substantial economic, cultural, 
+and tourism benefits to our region and strengthen its global connections.  
+
+Currently, many residents and businesses in Hampton Roads must travel long distances to access international flights. Offering direct 
+international connections from ORF would save time, reduce costs, and enhance the region’s appeal as a hub for commerce, military operations, and tourism.  
+
+Federal support is vital in making this vision a reality. Your influence could help Norfolk International Airport secure funding and 
+resources needed for infrastructure improvements, attracting airlines, and meeting federal and international aviation standards.  
+
+As our senator, your advocacy for this initiative would reflect your commitment to the economic growth and well-being of Virginians. 
+I kindly ask that you champion this effort and help make international flights at ORF a priority.  
+
+Thank you for considering this request. I am hopeful for your support in this endeavor, and I am happy to provide any further information 
+or assistance needed to advance this cause.  
+
+Sincerely,  
+${name}  
+${address}  
+${email}  
+${phone}  
+            `;
+        }
+
+        function sendEmail() {
+            const letterContent = document.getElementById('letter').innerText;
+            const recipient = "senator@warner.senate.gov"; // Replace with the official email
+            const mailtoLink = `mailto:${recipient}?subject=Support for ORF International Flights&body=${encodeURIComponent(letterContent)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
